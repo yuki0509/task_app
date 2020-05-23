@@ -10,10 +10,10 @@ class TasksController < ApplicationController
     @task = current_user.tasks.new
   end
 
-  def confirm_new
-    @task = current_user.tasks.new(task_params)
-    render :new unless @task.valid?
-  end
+  # def confirm_new
+  #   @task = current_user.tasks.new(task_params)
+  #   render :new unless @task.valid?
+  # end
 
   def create
     @task = current_user.tasks.new(task_params)
@@ -53,7 +53,7 @@ class TasksController < ApplicationController
 
   private
     def task_params
-      params.require(:task).permit(:name, :description)
+      params.require(:task).permit(:name, :description, :image)
     end
   
     def set_task
